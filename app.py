@@ -99,10 +99,14 @@ def main():
 
         # Print or use the result as needed
         st.write("Confidence Scores:")
-        st.write(result)
+        real=int(result["real"]*100)
+        fake=int(result["fake"]*100)
+        st.write("Real : {} %".format(real))
+        st.write("Fake : {} %".format(fake))
 
+        if fake >20:
         # Display the visualization
-        st.image(visualization, caption='Visualization', use_column_width=True)
+            st.image(visualization, caption='Visualization', use_column_width=True)
 
 if __name__ == "__main__":
     main()
